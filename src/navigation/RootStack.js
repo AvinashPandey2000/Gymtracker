@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import BottomTabs from './BottomTabs';
 import MuscleGroupDetails from '../screen/workout/MuscleGroupDetails';
+import HistoryDetail from '../screen/history/HistoryDetail';
 
 const RootStack = createNativeStackNavigator({
   screens: {
@@ -18,6 +19,12 @@ const RootStack = createNativeStackNavigator({
       options: {
         title: 'Workout',
       },
+    },
+    HistoryDetail: {
+      screen: HistoryDetail,
+      options: ({ route }) => ({
+        title: route?.params?.title ?? 'History',
+      }),
     },
   },
 });

@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
         shadowRadius: 12,
         shadowOffset: { width: 0, height: 6 },
         elevation: 3,
+        alignItems: 'center'
     },
     iconContainer: {
         width: 40,
@@ -128,6 +129,7 @@ const styles = StyleSheet.create({
     iconImage: {
         width: '100%',
         height: '100%',
+        tintColor: '#111827',
     },
     cardTitle: {
         fontSize: 16,

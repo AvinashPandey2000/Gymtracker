@@ -1,6 +1,7 @@
 //import liraries
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
+import Images from '../../assets/images';
 
 // create a component
 const DietPlanTab = () => {
@@ -10,62 +11,51 @@ const DietPlanTab = () => {
             title: 'Morning Before Gym',
             subtitle: 'Energy & Fuel',
             time: '06:30 AM',
-            icon: 'M',
+            icon: Images.earlySun,
             color: '#FDE68A',
-            iconText: '#B45309',
         },
         {
             id: 'after-gym',
             title: 'Morning After Gym',
             subtitle: 'Recovery',
             time: '08:30 AM',
-            icon: 'A',
+            icon: Images.weightBar,
             color: '#BFDBFE',
-            iconText: '#1D4ED8',
         },
         {
             id: 'lunch',
             title: 'Lunch',
             subtitle: 'Balanced Meal',
             time: '01:00 PM',
-            icon: 'L',
+            icon: Images.DietPlan,
             color: '#BBF7D0',
-            iconText: '#047857',
         },
         {
             id: 'snacks',
             title: 'Snacks',
             subtitle: 'Metabolism Boost',
             time: '04:30 PM',
-            icon: 'S',
+            icon: Images.snackes,
             color: '#FED7AA',
-            iconText: '#C2410C',
         },
         {
             id: 'dinner',
             title: 'Dinner',
             subtitle: 'Night Repair',
             time: '08:00 PM',
-            icon: 'D',
+            icon: Images.dinner,
             color: '#E0E7FF',
-            iconText: '#3730A3',
         },
     ];
 
     return (
         <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-            <Text style={styles.title}>Daily Overview</Text>
-            <Text style={styles.subtitle}>
-                Follow your personalized nutrition schedule for peak performance.
-            </Text>
 
             <View style={styles.list}>
                 {meals.map((meal) => (
                     <View key={meal.id} style={styles.card}>
                         <View style={[styles.iconCircle, { backgroundColor: meal.color }]}>
-                            <Text style={[styles.iconText, { color: meal.iconText }]}>
-                                {meal.icon}
-                            </Text>
+                            <Image source={meal.icon} style={styles.iconImage} />
                         </View>
                         <View style={styles.cardContent}>
                             <Text style={styles.cardTitle}>{meal.title}</Text>
@@ -73,7 +63,7 @@ const DietPlanTab = () => {
                                 {meal.subtitle} - {meal.time}
                             </Text>
                         </View>
-                        <Text style={styles.chevron}>{'>'}</Text>
+                        <Image source={Images.rightArrow} style={styles.chevronIcon} />
                     </View>
                 ))}
             </View>
@@ -129,9 +119,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginRight: 14,
     },
-    iconText: {
-        fontSize: 16,
-        fontWeight: '700',
+    iconImage: {
+        width: 28,
+        height: 28,
+        tintColor: '#111827',
     },
     cardContent: {
         flex: 1,
@@ -147,10 +138,12 @@ const styles = StyleSheet.create({
         color: '#6B7280',
         fontWeight: '500',
     },
-    chevron: {
-        fontSize: 18,
-        color: '#9CA3AF',
+    chevronIcon: {
+        width: 16,
+        height: 16,
         marginLeft: 8,
+        tintColor: '#9CA3AF',
+        resizeMode: 'contain',
     },
 });
 

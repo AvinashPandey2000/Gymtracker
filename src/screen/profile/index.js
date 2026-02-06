@@ -6,18 +6,19 @@ import Images from '../../assets/images';
 // create a component
 const ProfileTab = () => {
     const [isEditing, setIsEditing] = useState(false);
-    const [name, setName] = useState('Ali Khan');
-    const [height, setHeight] = useState('175 cm');
-    const [weight, setWeight] = useState('72 kg');
+    const [name, setName] = useState('Avinash Pandey');
+    const [height, setHeight] = useState('180 cm');
+    const [weight, setWeight] = useState('78 kg');
 
     const onSave = () => {
         setIsEditing(false);
     };
 
+
     const onCancel = () => {
-        setName('Ali Khan');
-        setHeight('175 cm');
-        setWeight('72 kg');
+        setName('Avinash Pandey');
+        setHeight('180 cm');
+        setWeight('78 kg');
         setIsEditing(false);
     };
 
@@ -32,7 +33,10 @@ const ProfileTab = () => {
                 )}
             </View>
             <View style={styles.card}>
-                <Image source={Images.Profile} style={styles.photo} />
+                <View style={styles.photo}>
+                    <Image source={Images.Profile} style={styles.photo1} />
+
+                </View>
                 <View style={styles.info}>
                     {isEditing ? (
                         <TextInput
@@ -81,6 +85,19 @@ const ProfileTab = () => {
                         </View>
                     )}
                 </View>
+            </View>
+
+            <View>
+                <Text style={styles.title}>My plain</Text>
+
+
+                <Text>Monday: Cardio + Abs</Text>
+                <Text>Tuesday: biceps + triceps</Text>
+                <Text>Wednesday: Chest + shoulder</Text>
+                <Text>Thursday: Rest</Text>
+                <Text>Friday: back</Text>
+                <Text>Saturday: Leg</Text>
+                <Text>Sunday: Rest</Text>
             </View>
         </View>
     );
@@ -135,6 +152,12 @@ const styles = StyleSheet.create({
         marginRight: 16,
         borderWidth: 2,
         borderColor: '#e5e7eb',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    photo1: {
+        width: 70,
+        height: 70,
     },
     info: {
         flex: 1,
