@@ -22,6 +22,17 @@ const ProfileTab = () => {
         setIsEditing(false);
     };
 
+    const weeklyPlan = [
+
+        { day: 'Monday', activity: 'Rest' },
+        { day: 'Tuesday', activity: 'Rest' },
+        { day: 'Wednesday', activity: 'Cardio + Abs' },
+        { day: 'Thursday', activity: 'Biceps + Triceps' },
+        { day: 'Friday', activity: 'Chest + Shoulder' },
+        { day: 'Saturday', activity: 'Back' },
+        { day: 'Sunday', activity: 'Legs' },
+    ];
+
     return (
         <View style={styles.container}>
             <View style={styles.headerRow}>
@@ -87,17 +98,22 @@ const ProfileTab = () => {
                 </View>
             </View>
 
-            <View>
-                <Text style={styles.title}>My plain</Text>
-
-
-                <Text>Monday: Cardio + Abs</Text>
-                <Text>Tuesday: biceps + triceps</Text>
-                <Text>Wednesday: Chest + shoulder</Text>
-                <Text>Thursday: Rest</Text>
-                <Text>Friday: back</Text>
-                <Text>Saturday: Leg</Text>
-                <Text>Sunday: Rest</Text>
+            <View style={styles.planWrapper}>
+                <Text style={styles.sectionTitle}>Weekly plan</Text>
+                <View style={styles.planCard}>
+                    {weeklyPlan.map(({ day, activity }, index) => (
+                        <View
+                            key={day}
+                            style={[
+                                styles.planRow,
+                                index === weeklyPlan.length - 1 && styles.planRowLast,
+                            ]}
+                        >
+                            <Text style={styles.planDay}>{day}</Text>
+                            <Text style={styles.planActivity}>{activity}</Text>
+                        </View>
+                    ))}
+                </View>
             </View>
         </View>
     );
@@ -237,6 +253,45 @@ const styles = StyleSheet.create({
         color: '#111827',
         fontSize: 13,
         fontWeight: '700',
+    },
+    planWrapper: {
+        marginTop: 28,
+    },
+    sectionTitle: {
+        fontSize: 20,
+        fontWeight: '700',
+        color: '#111827',
+        marginBottom: 12,
+    },
+    planCard: {
+        backgroundColor: '#ffffff',
+        borderRadius: 16,
+        paddingVertical: 12,
+        paddingHorizontal: 16,
+        shadowColor: '#000',
+        shadowOpacity: 0.04,
+        shadowRadius: 12,
+        shadowOffset: { width: 0, height: 6 },
+        elevation: 2,
+    },
+    planRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingVertical: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: '#eef1f4',
+    },
+    planRowLast: {
+        borderBottomWidth: 0,
+    },
+    planDay: {
+        fontSize: 16,
+        fontWeight: '600',
+        color: '#111827',
+    },
+    planActivity: {
+        fontSize: 16,
+        color: '#6b7280',
     },
 });
 
