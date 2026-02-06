@@ -1,10 +1,12 @@
 //import liraries
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Images from '../../assets/images';
 
 // create a component
 const WorkOutTab = () => {
+    const navigation = useNavigation();
     const todayLabel = new Date().toLocaleDateString('en-US', {
         weekday: 'long',
         month: 'long',
@@ -40,15 +42,24 @@ const WorkOutTab = () => {
 
             <View style={styles.grid}>
                 {muscleGroups.map((item) => (
-                    <View key={item.id} style={styles.card}>
+                    <TouchableOpacity
+                        key={item.id}
+                        style={styles.card}
+                        activeOpacity={0.85}
+                        onPress={() => navigation.navigate('MuscleGroup', { title: item.title, id: item.id })}
+                    >
                         <View style={styles.iconContainer}>
                             <Image source={item.icon} style={styles.iconImage} resizeMode="contain" />
                         </View>
                         <Text style={styles.cardTitle}>{item.title}</Text>
                         <Text style={styles.cardSubtitle}>{item.subtitle}</Text>
-                    </View>
+                    </TouchableOpacity>
                 ))}
             </View>
+
+            <TouchableOpacity style={styles.retrainButton} activeOpacity={0.85}>
+                <Text style={styles.retrainButtonText}>Save In History</Text>
+            </TouchableOpacity>
         </ScrollView>
     );
 };
@@ -128,6 +139,25 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: '#6B7280',
         fontWeight: '500',
+    },
+    retrainButton: {
+        marginTop: 8,
+        backgroundColor: '#111827',
+        paddingVertical: 14,
+        paddingHorizontal: 18,
+        borderRadius: 14,
+        alignItems: 'center',
+        shadowColor: '#111827',
+        shadowOpacity: 0.2,
+        shadowRadius: 10,
+        shadowOffset: { width: 0, height: 6 },
+        elevation: 4,
+    },
+    retrainButtonText: {
+        color: '#F9FAFB',
+        fontSize: 16,
+        fontWeight: '700',
+        letterSpacing: 0.3,
     },
 });
 

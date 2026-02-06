@@ -1,5 +1,3 @@
-import * as React from 'react';
-import { createStaticNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Image } from 'react-native';
 
@@ -34,8 +32,4 @@ const Tabs = createBottomTabNavigator({
   }),
 });
 
-const Navigation = createStaticNavigation(Tabs);
-
-export default function BottomTabs() {
-  return <Navigation />;
-}
+export default Tabs;

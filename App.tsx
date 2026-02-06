@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import BottomTabs from './src/navigation/BottomTabs';
+import RootStackNavigation from './src/navigation/RootStack';
 
 export default function App() {
-  return <BottomTabs />;
+  return <RootStackNavigation />;
 }
