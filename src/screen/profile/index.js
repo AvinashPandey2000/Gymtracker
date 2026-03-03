@@ -25,12 +25,12 @@ const ProfileTab = () => {
     const weeklyPlan = [
 
         { day: 'Monday', activity: 'Rest' },
-        { day: 'Tuesday', activity: 'Rest' },
+        { day: 'Tuesday', activity: 'Shoulder + back' },
         { day: 'Wednesday', activity: 'Cardio + Abs' },
         { day: 'Thursday', activity: 'Biceps + Triceps' },
         { day: 'Friday', activity: 'Chest + Shoulder' },
         { day: 'Saturday', activity: 'Back' },
-        { day: 'Sunday', activity: 'Legs' },
+        { day: 'Sunday', activity: 'Legs + Abs' },
     ];
 
     return (
