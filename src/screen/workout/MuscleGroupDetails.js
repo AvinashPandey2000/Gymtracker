@@ -827,8 +827,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     infoImage: {
-        width: 280,
-        height: 240,
+        width: 380,
+        height: 380,
         borderRadius: 12,
         marginRight: 16,
     },
