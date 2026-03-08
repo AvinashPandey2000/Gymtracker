@@ -5,6 +5,7 @@ import WorkOutTab from '../screen/workout';
 import DietPlanTab from '../screen/dietPlan';
 import HistoryTab from '../screen/history';
 import ProfileTab from '../screen/profile';
+import WaterTrackerTab from '../screen/waterTracker';
 import Images from '../assets/images';
 
 const TAB_ICONS = {
@@ -12,6 +13,7 @@ const TAB_ICONS = {
   DietPlan: Images.DietPlan,
   History: Images.History,
   Profile: Images.Profile,
+  WaterTracker: Images.WaterTracker,
 };
 
 const Tabs = createBottomTabNavigator({
@@ -19,6 +21,7 @@ const Tabs = createBottomTabNavigator({
     Workout: WorkOutTab,
     DietPlan: DietPlanTab,
     History: HistoryTab,
+    WaterTracker: WaterTrackerTab,
     Profile: ProfileTab,
   },
   screenOptions: ({ route }) => ({

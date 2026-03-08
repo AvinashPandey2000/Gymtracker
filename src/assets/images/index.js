@@ -16,6 +16,6 @@ const Images = {
     dinner: require('./dinner.png'),
     earlySun: require('./earlySun.png'),
     snackes: require('./snackes.png'),
-    rightArrow: require('./rightArrow.png'),
+    WaterTracker: require('./waterTracker.png'),
 };
 module.exports = Images;
